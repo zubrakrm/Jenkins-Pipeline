@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'npm install'  // Replace with your build commands
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sh 'npm test'  // Replace with your test commands
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh 'npm deploy'  // Replace with your deployment commands
+            }
+        }
+    }
+}
